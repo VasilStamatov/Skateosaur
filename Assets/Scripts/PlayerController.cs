@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*
  * Behaviour to handle keyboard input and also store the player's
@@ -30,9 +31,9 @@ public class PlayerController : MonoBehaviour
 
     if(health < 1)
     {
-      Application.LoadLevel("EndGame");
-    }
-  }
+						SceneManager.LoadScene("EndGame");
+				}
+		}
 
   /*
    * Accessor for health variable, used by he HUD to display health.
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour
    */
   private void Update()
   {
-    if(Input.GetKeyDown(KeyCode.UpArrow))
+    if(Input.GetAxis("vertical") > 0)
     {
       if(canJump == true)
       {

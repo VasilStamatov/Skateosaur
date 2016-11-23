@@ -20,6 +20,6 @@ public class PlayerCollider : MonoBehaviour
     playerController.Damage();
 
     // Make this object disappear
-    GameObject.Destroy(gameObject);
+    Destroy(gameObject);
   }
 }
