@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
    */
   private void Update()
   {
-    if(Input.GetAxis("vertical") > 0)
+    if(Input.GetAxis("Vertical") > 0)
     {
       if(canJump == true)
       {
