@@ -5,6 +5,9 @@ public class GrumpyBirdController : MonoBehaviour
 {
 		private Bird bird;
 		private Rigidbody2D rb;
+
+		public float smoothRotation;
+
 		// Use this for initialization
 		void Start()
 		{
@@ -17,14 +20,22 @@ public class GrumpyBirdController : MonoBehaviour
 		{
 				if (Input.GetKeyDown(KeyCode.Space))
 				{
-						rb.AddForce(new Vector2(0.0f, bird.JumpPower));
+						rb.velocity = new Vector2(0.0f, 0.0f);
+						rb.AddForce(Vector2.up * bird.JumpPower);
+				}
+				if (rb.velocity.y > 0)
+				{
+						transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 45.0f), Time.deltaTime * smoothRotation);
+				}
+				else
+				{
+						transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 0.0f), Time.deltaTime * smoothRotation);
 				}
 		}
 
-		public void TakeDamage(Vector2 hitPoint)
+		public void TakeDamage(int damage)
 		{
-				bird.Health -= 1;
-				rb.AddForce(hitPoint * -1);
+				bird.Health -= damage;
 				if (bird.Health < 1)
 				{
 						SceneManager.LoadScene("EndGame");
