@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
 /*
- * Handles the movement of the monster and monster-player collision handing
+ * Handles the movement of the enemies and enemy-player collision handing
  */
-public class FlappyMonsterBehavior : MonoBehaviour
+public class EnemyMover : MonoBehaviour
 {
 		public float speed;
-		private int damage = 1;
-		private int health = 6;
+		public int damage = 1;
 
 		/*
 			* Translate the flappy monster by speed per second to the left
