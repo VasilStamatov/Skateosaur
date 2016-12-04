@@ -19,7 +19,7 @@ public class GrumpyBirdController : MonoBehaviour
 		void Start()
 		{
 				rb = GetComponent<Rigidbody2D>();
-				bird = new Bird("Grumpy", 400, 6);
+				bird = new Bird("Grumpy", 400, 1);
 		}
 
 		/*
@@ -56,5 +56,10 @@ public class GrumpyBirdController : MonoBehaviour
 				{
 						SceneManager.LoadScene("EndGame");
 				}
+		}
+
+		void OnDisable()
+		{
+				SceneManager.LoadScene("EndGame");
 		}
 }
