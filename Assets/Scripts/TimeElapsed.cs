@@ -102,11 +102,16 @@ public class TimeElapsed : MonoBehaviour
 														}
 												}
 										}
-
+										for (int i = 0; i < GlobalControl.Instance.highScores.Length; i++)
+										{
+												Debug.Log(GlobalControl.Instance.highScores[i]);
+										}
 										break;
 								}
 						default:
 								break;
 				}
+				//save the data
+				GlobalControl.Instance.SaveData();
 		}
 }

@@ -32,6 +32,9 @@ public class MenuController : MonoBehaviour
 
 		public void OnExitClicked()
 		{
+				//save the data
+				GlobalControl.Instance.SaveData();
+
 				Application.Quit();
 		}
 		public void OnLevelSelector()
