@@ -10,18 +10,9 @@ public class GlobalControl : MonoBehaviour
 		/*
 			* the single instance of the class
 			*/
-		public static GlobalControl Instance;
+		public static GlobalControl instance;
 
-		/*
-			* the top 10 high scores
-			*/
-		public ushort[] highScores = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-
-		/*
-			* the unlocked levels (1 to 7)
-			*/
-		public byte unlockedLevels = 1;
-
+		public SavedStats savedStats = new SavedStats();
 		/*
 			* the unlocked characters (1 to x)
 			*/
@@ -42,7 +33,7 @@ public class GlobalControl : MonoBehaviour
 				/*
 					* check if an instance already exists
 					*/
-				if (Instance == null)
+				if (instance == null)
 				{
 						/*
 						 * if not, then this must be the first one
@@ -53,9 +44,9 @@ public class GlobalControl : MonoBehaviour
 						/*
 						 * and set the static instance variable to this
 						 */
-						Instance = this;
+						instance = this;
 				}
-				else if (Instance != this)
+				else if (instance != this)
 				{
 						/*
 						 * if an instance already exists(and it's not the main one), destroy this one and keep using the original instance
@@ -85,7 +76,7 @@ public class GlobalControl : MonoBehaviour
 				FileStream saveFile = File.Create("Saves/save.binary");
 
 				//save the highscores
-				formatter.Serialize(saveFile, highScores);
+				formatter.Serialize(saveFile, savedStats);
 
 				//Close the file
 				saveFile.Close();
@@ -103,7 +94,7 @@ public class GlobalControl : MonoBehaviour
 						FileStream saveFile = File.Open("Saves/save.binary", FileMode.Open);
 
 						//read the highscore
-						highScores = (ushort[])formatter.Deserialize(saveFile);
+						savedStats = (SavedStats)formatter.Deserialize(saveFile);
 				}
 		}
 }

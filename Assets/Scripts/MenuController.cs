@@ -27,13 +27,13 @@ public class MenuController : MonoBehaviour
    */
 		public void OnRetryClicked()
 		{
-				SceneManager.LoadScene(GlobalControl.Instance.levelPlayed);
+				SceneManager.LoadScene(GlobalControl.instance.levelPlayed);
 		}
 
 		public void OnExitClicked()
 		{
 				//save the data
-				GlobalControl.Instance.SaveData();
+				GlobalControl.instance.SaveData();
 
 				Application.Quit();
 		}
@@ -51,63 +51,63 @@ public class MenuController : MonoBehaviour
 		/* Level selectors */
 		public void OnLevel1()
 		{
-				if (GlobalControl.Instance.unlockedLevels >= 1)
+				if (GlobalControl.instance.savedStats.unlockedLevels >= 1)
 				{
-						GlobalControl.Instance.levelPlayed = "Level1";
+						GlobalControl.instance.levelPlayed = "Level1";
 						SceneManager.LoadScene("Level1");
 				}
 		}
 		public void OnLevel2()
 		{
-				if (GlobalControl.Instance.unlockedLevels >= 2)
+				if (GlobalControl.instance.savedStats.unlockedLevels >= 2)
 				{
-						GlobalControl.Instance.levelPlayed = "Level2";
+						GlobalControl.instance.levelPlayed = "Level2";
 						SceneManager.LoadScene("Level2");
 				}
 		}
 		public void OnLevel3()
 		{
-				if (GlobalControl.Instance.unlockedLevels >= 3)
+				if (GlobalControl.instance.savedStats.unlockedLevels >= 3)
 				{
-						GlobalControl.Instance.levelPlayed = "Level3";
+						GlobalControl.instance.levelPlayed = "Level3";
 						SceneManager.LoadScene("Level3");
 				}
 		}
 		public void OnLevel4()
 		{
-				if (GlobalControl.Instance.unlockedLevels >= 4)
+				if (GlobalControl.instance.savedStats.unlockedLevels >= 4)
 				{
-						GlobalControl.Instance.levelPlayed = "Level4";
+						GlobalControl.instance.levelPlayed = "Level4";
 						SceneManager.LoadScene("Level4");
 				}
 		}
 		public void OnLevel5()
 		{
-				if (GlobalControl.Instance.unlockedLevels >= 5)
+				if (GlobalControl.instance.savedStats.unlockedLevels >= 5)
 				{
-						GlobalControl.Instance.levelPlayed = "Level5";
+						GlobalControl.instance.levelPlayed = "Level5";
 						SceneManager.LoadScene("Level5");
 				}
 		}
 		public void OnLevel6()
 		{
-				if (GlobalControl.Instance.unlockedLevels >= 6)
+				if (GlobalControl.instance.savedStats.unlockedLevels >= 6)
 				{
-						GlobalControl.Instance.levelPlayed = "Level6";
+						GlobalControl.instance.levelPlayed = "Level6";
 						SceneManager.LoadScene("Level6");
 				}
 		}
 		public void OnLevel7()
 		{
-				if (GlobalControl.Instance.unlockedLevels >= 7)
+				if (GlobalControl.instance.savedStats.unlockedLevels >= 7)
 				{
-						GlobalControl.Instance.levelPlayed = "Level7";
+						GlobalControl.instance.levelPlayed = "Level7";
 						SceneManager.LoadScene("Level7");
 				}
 		}
 		public void OnSurvivalMode()
 		{
-				GlobalControl.Instance.levelPlayed = "Survival";
+				GlobalControl.instance.levelPlayed = "Survival";
 				SceneManager.LoadScene("Survival");
 		}
 }

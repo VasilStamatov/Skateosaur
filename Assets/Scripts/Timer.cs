@@ -22,6 +22,6 @@ public class Timer : MonoBehaviour
 
 		void OnDisable()
 		{
-				GlobalControl.Instance.timeSurvived = roundedScore;
+				GlobalControl.instance.timeSurvived = roundedScore;
 		}
 }
